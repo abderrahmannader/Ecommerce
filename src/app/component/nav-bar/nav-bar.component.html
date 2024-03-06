@@ -1,0 +1,66 @@
+<nav #navbar class="navbar navbar-expand-lg bg-dark-subtle px-5">
+  
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./assets/images/freshcart-logo.svg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart"  href="#">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories" href="#">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/brands" href="#">Brands</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/wishlist" href="#">WishList</a>
+          </li>
+          
+        </ul>
+
+
+        <ul class="navbar-nav">
+          <li class="nav-item position-relative">
+            <a role="button" routerLink="/wishlist" class="nav-link" href="#"><i class="fa-solid fa-heart fs-4" style="color: #ff0000;"></i></a>
+            <span class="badge bg-main position-absolute top-0 end-0">{{wishlistnNum}}</span>
+          </li>
+          <li class="nav-item position-relative">
+            <a role="button" routerLink="/cart" class="nav-link" href="#"><i class="fa-solid fa-cart-shopping fs-4"></i></a>
+            <span class="badge bg-main position-absolute top-0 end-0">{{cartNum}}</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-brands fa-tiktok"></i></a>
+          </li>
+          <li class="nav-item ms-4">
+            <button (click)="logout()" class="btn btn-main">SignOut</button>
+          </li>
+        </ul>
+      </div>
+
+      
+
+      
+    </div>
+  </nav>

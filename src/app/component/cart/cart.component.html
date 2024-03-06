@@ -1,0 +1,70 @@
+<section>
+    <div class="w-75 m-auto shadow p-5">
+
+        <div class="d-flex justify-content-between">
+            <h3 class="fw-bold">Cart Shop</h3>
+            <button [routerLink]="['/payment', cartId ]" class="btn btn-main">Check Out</button>
+        </div>
+
+
+        <div class="d-flex justify-content-between pt-4">
+            <h6 class="fw-bold">Total Price: <span>{{totalPrice}}</span> </h6>
+            <h6 class="fw-bold">Total number of items : {{numberOfItems}}</h6>
+        </div>
+
+
+
+
+
+
+
+        <div *ngIf="products;else name">
+
+            <div  *ngFor="let product of products" class="row py-5 ">
+                <div class="col-2">
+                    <img class="w-100" [src]="product.product.imageCover" alt="">
+                </div>
+    
+                <div class="col-10 m-auto d-flex justify-content-between">
+    
+                    <div>
+                        <h6 class="fw-bold">{{product.product.title}}</h6>
+                        <p class="fw-bold">{{product.price}} EGP</p>
+                        <button #btnelem (click)="RemoveItems(product.product._id,btnelem)" class="btn"><i class="fa-solid fa-dumpster text-danger"></i><span class="ps-2 text-danger">Remove</span></button>
+                    </div>
+    
+    
+                    <div >
+                        <button #btnelem1 (click)="updateItems(product.product._id, product.count + 1,btnelem1,btnelem2 )" class="btn btn-sm btn-main flex-grow-0">+</button>
+                        <span class="px-2">{{product.count}}</span>
+                        <button #btnelem2 (click)="updateItems(product.product._id, product.count - 1,btnelem2, btnelem1 )" class="btn btn-sm btn-main">-</button>
+                    </div>
+    
+                </div>
+    
+                <hr>
+    
+            </div>
+    
+
+        </div>
+       
+
+
+        <div class="text-center">
+            <button #clear (click)="clearAll(clear)" class="btn btn-main w-25 ">Clear All</button>
+        </div>
+
+
+
+
+    </div>
+</section>
+
+
+
+<ng-template #name>
+    <div class="py-5"><h6 class="text-center fs-4 fw-bold">Nothing in your Cart</h6></div>
+    
+</ng-template>
+

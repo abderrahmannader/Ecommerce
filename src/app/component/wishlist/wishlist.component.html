@@ -1,0 +1,61 @@
+<section>
+    <div class="w-75 m-auto shadow p-5">
+
+        <div class="d-flex justify-content-between">
+            <h3 class="fw-bold">WishList</h3>
+        </div>
+
+
+       
+
+
+
+
+
+
+
+        <div *ngIf="WishList.length > 0 ;else name">
+
+            <div  *ngFor="let product of WishList" class="row py-5 ">
+                <div class="col-2">
+                    <img class="w-100" [src]="product.imageCover" alt="">
+                </div>
+    
+                <div class="col-10 m-auto d-flex justify-content-between">
+    
+                    <div>
+                        <h6 class="fw-bold">{{product.title.split(' ').slice(0,2).join(' ')}}</h6>
+                        <p class="fw-bold">{{product.price}} EGP</p>
+                        <button id="removebtn" #btnelem (click)="RemoveItems(product._id,btnelem)" class="btn"><i class="fa-solid fa-dumpster text-danger"></i><span class="ps-2 text-danger">Remove</span></button>
+                    </div>
+    
+    
+                    <div >
+                        <button  #addbtn (click)="addProducts(product._id, addbtn)" class="btn btn-add-products btn-main w-100 ">Add To Cart</button>
+                    </div>
+    
+                </div>
+    
+                <hr>
+    
+            </div>
+    
+
+        </div>
+       
+
+
+        
+
+
+
+
+    </div>
+</section>
+
+
+
+<ng-template #name>
+    <div class="py-5"><h6 class="text-center fs-4 fw-bold">Nothing in your WishList</h6></div>
+    
+</ng-template>

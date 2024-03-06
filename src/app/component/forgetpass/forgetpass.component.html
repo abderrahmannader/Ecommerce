@@ -1,0 +1,67 @@
+<section class="d-flex justify-content-center align-items-center">
+
+
+
+<form [formGroup]="forgetpassword" (ngSubmit)="ForgetpasswordApi()" *ngIf="step1" class="p-5 shadow w-75">
+    <h5 class="fw-bold pb-4">Forget Password</h5>
+    <label class="fw-bold pb-2" for="email">Enter Your Email</label>
+    <input formControlName="email" class="form-control" id="email" name="email" placeholder="email" type="email">
+
+    <p  *ngIf="errorMsg" [class]="alertColor == true ? 'alert-success': 'alert-danger' " class="alert  mt-3">{{errorMsg}}</p>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit"   class="btn btn-main mt-4 w-25">ForgetPassword</button>
+    </div>
+
+    
+    
+
+</form>
+
+
+
+
+<form [formGroup]="CodeFromEmail" (ngSubmit)="EmailCodeApi()" *ngIf="step2" class="p-5 shadow w-75">
+    <h5 class="fw-bold pb-4">Reset Code</h5>
+    <label class="fw-bold pb-2" for="text">Enter Code</label>
+    <input formControlName="resetCode" class="form-control" id="text" name="text" placeholder="" type="text">
+    <div *ngIf="errorMsg">
+        <p *ngIf="errorMsg" [class]="alertColor == true ? 'alert-success': 'alert-danger'"  class="alert  mt-3">{{errorMsg}}</p>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-main mt-4 w-25">Next</button>
+    </div>
+    
+
+</form>
+
+
+
+
+
+<form [formGroup]="Resetpass" (ngSubmit)="resetPasswordApi()" *ngIf="step3" class="p-5 shadow w-75">
+    <h5 class="fw-bold pb-4">Reset Password</h5>
+    <label class="fw-bold pb-2" for="password">Enter Your New Password</label>
+    <input formControlName="newPassword" class="form-control" id="password" name="password" placeholder="password" type="password">
+    <div *ngIf="errorMsg">
+        <p *ngIf="errorMsg" [class]="alertColor == true ? 'alert-success': 'alert-danger'"  class="alert  mt-3">{{errorMsg}}</p>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-main mt-4 w-25">Reset Password</button>
+    </div>
+    
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+</section>

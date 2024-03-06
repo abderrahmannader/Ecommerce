@@ -1,0 +1,52 @@
+<section class="p-5">
+    <div *ngIf="productDetails" class="row">
+        <div class="col-md-3">
+
+            <div>
+
+                <img class="w-100" [src]="productDetails.imageCover" alt="">
+            </div>
+            
+        </div>
+
+        <div class="col-md-7 d-flex justify-content-center align-items-center">
+
+
+            <div class="position-relative  pt-5">
+
+                <div *ngIf="!wishListData.includes(productDetails._id)" (click)="addWishList(productDetails._id)"><i class="fa-solid fa-heart heart"></i></div>
+                    <div *ngIf="wishListData.includes(productDetails._id)" (click)="addWishList(productDetails._id)"><i class="fa-solid fa-heart heart" style="color: #ff0000;"></i></div>
+
+                <div class="p-4">
+                    <h5>{{productDetails.title}}</h5>
+                    <p>{{productDetails.description}}</p>
+        
+                    <p>{{productDetails.category.name}}</p>
+        
+                    <div class="d-flex justify-content-between">
+                        <p><span>{{productDetails.price}}</span>EGP</p>
+        
+                        <div>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <span>{{productDetails.ratingsAverage}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button #addbtn (click)="addProducts(productDetails._id, addbtn)" class="btn btn-main w-100">+ Add To Cart</button>
+
+
+
+            </div>
+
+            
+
+
+        </div>
+
+
+
+
+
+    </div>
+</section>

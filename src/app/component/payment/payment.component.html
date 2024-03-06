@@ -1,0 +1,53 @@
+<section class="d-flex justify-content-center align-items-center">
+
+
+
+    <form [formGroup]="OrderDetails" (ngSubmit)="CheckOut()" class="w-75 shadow p-4 ">
+
+        <h4 class="fw-bold">CheckOut:</h4>
+
+        <label class="pb-1" for="details">details:</label>
+        <input #inputdetails formControlName = 'details' class="form-control" id="details" placeholder="details" name="details" type="text">
+
+        <div *ngIf="OrderDetails.get('details')?.touched && (OrderDetails.get('details')?.errors || inputdetails.value.length < 0)" class="alert alert-danger">
+            <p *ngIf="OrderDetails.get('details')?.getError('required')" >details required</p>
+            <p *ngIf="OrderDetails.get('details')?.getError('minlength')" >details Min Length 3</p>
+            <p *ngIf="OrderDetails.get('details')?.getError('maxlength')" >details Max Length 20</p>
+            
+
+        </div>
+
+        <label class="pb-1" for="phone">phone</label>
+        <input #inputPhone formControlName = 'phone' class="form-control" id="phone" name="phone" placeholder="phone" type="tel">
+
+        <div *ngIf="OrderDetails.get('phone')?.touched && (OrderDetails.get('phone')?.errors || inputPhone.value.length < 0)" class="alert alert-danger">
+            <p *ngIf="OrderDetails.get('phone')?.getError('required')" >phone required</p>
+            <p *ngIf="OrderDetails.get('phone')?.getError('pattern')" >accept only egypt phone numbers</p>
+           
+            
+
+        </div>
+
+
+        <label class="pb-1" for="city">city</label>
+        <input #inputcity formControlName = 'city' class="form-control" id="city" name="city" placeholder="city" type="text">
+
+
+        <div *ngIf="OrderDetails.get('city')?.touched && (OrderDetails.get('city')?.errors || inputcity.value.length < 0)" class="alert alert-danger">
+            <p *ngIf="OrderDetails.get('city')?.getError('required')" >city required</p>
+            <p *ngIf="OrderDetails.get('city')?.getError('minlength')" >city Min Length 3</p>
+            <p *ngIf="OrderDetails.get('city')?.getError('maxlength')" >city Max Length 15</p>
+            
+
+        </div>
+
+        <button [disabled]="OrderDetails.invalid" type="submit" class="btn btn-main mt-3"> Submit</button>
+
+
+    </form>
+
+
+
+
+
+</section>

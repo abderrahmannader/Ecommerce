@@ -1,0 +1,18 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+.arrow-up{
+    position: fixed;
+    z-index: 3;
+    bottom: 30px;
+    right: 30px;
+}
+
+.nav-pad{
+    padding-top: 100px;
+    
+}
